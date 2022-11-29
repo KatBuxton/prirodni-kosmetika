@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import './style.css';
 import { CartContext } from '../../cart-context';
 
-export const Cart = () => {
+export const Cart = ({ props }) => {
   const cartCtx = useContext(CartContext);
 
   const totalAmount = cartCtx.totalAmount.toFixed(2);

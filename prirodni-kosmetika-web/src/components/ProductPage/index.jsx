@@ -1,21 +1,20 @@
 import React, { useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import './style.css';
-import imageUrl from '../ProductCard/lemons.jpg';
 import { useContext } from 'react';
 import { CartContext } from '../../cart-context';
 
-export const ProductPage = ({ content, onAddToCart }) => {
+export const ProductPage = ({ content, props }) => {
   const amountInputRef = useRef();
   const { productId } = useParams();
   const cartCtx = useContext(CartContext);
 
   const addToCarlHandler = (amount) => {
     cartCtx.addItem({
-      id: content.product.index,
-      name: content.product.name,
+      id: props.id,
+      name: props.name,
       amount: amount,
-      price: content.product.price,
+      price: props.price,
     });
   };
 
@@ -29,7 +28,7 @@ export const ProductPage = ({ content, onAddToCart }) => {
     if (enteredAmount.trim().length === 0 || enteredAmountNumber < 1) {
       return;
     }
-    onAddToCart(enteredAmountNumber);
+    content.onAddToCart(enteredAmountNumber);
   };
 
   // //tohle pak smazu:
