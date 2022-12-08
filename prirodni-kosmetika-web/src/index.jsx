@@ -8,14 +8,26 @@ import content from './content';
 import { CategoryContext } from './category-context';
 import { Cart } from './components/Cart';
 import { Header } from './components/Header';
-import { CartProvider } from './CartProvider';
+import { CartContext } from './cart-context';
 
 const App = () => {
   const [filteredItems, setFilteredItems] = useState(content);
   const [category, setCategory] = useState('');
+  const [cartItems, setCartItems] = useState([]);
+  const [itemQuantity, setItemQuantity] = useState(1);
 
   const changeCategory = (newCategory) => {
     setCategory(newCategory);
+  };
+
+  const changeCart = (newCartItem) => {
+    setCartItems([...cartItems, newCartItem]);
+    console.log('cartItems in App', cartItems);
+  };
+
+  const changeItemQuantity = (newItemQuantity) => {
+    setItemQuantity(newItemQuantity);
+    console.log('itemQuantity:', itemQuantity);
   };
 
   const filterByCategory = (category) => {
@@ -23,6 +35,11 @@ const App = () => {
       return product.category === category;
     });
     setFilteredItems(newContent);
+  };
+
+  const resetCategory = () => {
+    setFilteredItems(content);
+    setCategory('');
   };
 
   console.log(filteredItems);
@@ -34,9 +51,11 @@ const App = () => {
 
   return (
     <CategoryContext.Provider
-      value={{ category, changeCategory, filterByCategory }}
+      value={{ category, changeCategory, filterByCategory, resetCategory }}
     >
-      <CartProvider>
+      <CartContext.Provider
+        value={{ cartItems, setCartItems, changeCart, changeItemQuantity }}
+      >
         <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
           <Header />
           <Routes>
@@ -58,7 +77,7 @@ const App = () => {
             <Route path="/cart" element={<Cart content={content} />} />
           </Routes>
         </BrowserRouter>
-      </CartProvider>
+      </CartContext.Provider>
     </CategoryContext.Provider>
   );
 };

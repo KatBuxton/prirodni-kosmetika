@@ -4,15 +4,11 @@ import './style.css';
 import headerImg from '../../img/header.jpg';
 import homeImg from '../../img/home.svg';
 import basketImg from '../../img/basket.svg';
-import { useContext } from 'react';
-import { CartContext } from '../../cart-context';
+import { useCart } from '../../cart-context';
 
 export const Header = () => {
-  const cartCtx = useContext(CartContext);
-
-  const numberOfCartItems = cartCtx.items.reduce((curNumber, item) => {
-    return curNumber + item.amount;
-  }, 0);
+  const { cartItems } = useCart();
+  const numberOfCartItems = cartItems.length;
 
   return (
     <div className="header">

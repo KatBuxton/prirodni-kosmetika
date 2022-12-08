@@ -1,13 +1,13 @@
 const content = [
   {
     index: '1',
-    name: 'ŠAMPUK CITRONOVÁ TRÁVA, TEA TREE 25',
+    name: 'ŠAMPUK CITRONOVÁ TRÁVA, TEA TREE',
     ingredients:
       'složení - sodium coco sulfát, babassu olej, ricinový olej, bambucké máslo, konopný protein, heřmánkový výluh, esenciální oleje, vitamín E',
     description:
       'hydratuje, regeneruje, zrychluje růst vlasů, omezuje svědění pokožky',
     details: 'praktická velikost, krabička a použití',
-    price: '105',
+    price: 105,
     amount: '25 g',
     category: 'kosmetika',
     subcategory: 'Vlasy',
@@ -22,7 +22,7 @@ const content = [
     description:
       'krásně vonící deodorant čistě z přírodních surovin, o dezodorační vlastnosti se postará kokosový olej, jedlá soda a tea tree',
     details: 'praktická velikost v tubě, neroztéká se ani v horku',
-    price: '80',
+    price: 80,
     amount: '15 ml',
     category: 'kosmetika',
     subcategory: 'Tělo',
@@ -36,7 +36,7 @@ const content = [
       'složení - bambucké máslo, kakaové máslo, včelí vosk, esenciální oleje, vitamín E',
     description: 'jednoduchý hydratační balzám v krabičce se svěží vůní',
     details: null,
-    price: '45',
+    price: 45,
     amount: '10 ml',
     category: 'kosmetika',
     subcategory: 'Obličej a rty',
@@ -50,7 +50,7 @@ const content = [
       'složení - bambucké máslo, kakaové máslo, včelí vosk, esenciální oleje, vitamín E, růžová mica',
     description: 'krásně malinami vonící balzám na rty s růžovým leskem',
     details: null,
-    price: '50',
+    price: 50,
     amount: '10 ml',
     category: 'kosmetika',
     subcategory: 'Obličej a rty',
@@ -63,7 +63,7 @@ const content = [
     ingredients: 'složení - jojobový olej, včelí vosk, esenciální oleje',
     description: 'mini parfém do kabelky s krásnou květinovou vůní',
     details: null,
-    price: '50',
+    price: 50,
     amount: '10 ml',
     category: 'kosmetika',
     subcategory: 'Vůně',
@@ -77,7 +77,7 @@ const content = [
     description:
       'obsahuje domácí extrakt z měsíčku pro co nejsilnější účinky - zejména na kožní problémy, křečové žíly, popáleniny, ekzémy, opruzeniny atd.',
     details: 'oblíbený také při péči o děti',
-    price: '165',
+    price: 165,
     amount: '50 ml',
     category: 'kosmetika',
     subcategory: 'Funkční masti',
@@ -92,7 +92,7 @@ const content = [
     description:
       'čistě přírodní metoda, můžou používat i děti, stačí namazat pod nos, příp. na hruď atd.',
     details: null,
-    price: '80',
+    price: 80,
     amount: '50 ml',
     category: 'kosmetika',
     subcategory: 'Funkční masti',
@@ -107,7 +107,7 @@ const content = [
     description:
       'výživa pro nohy, která jim přes noc uleví a krásně vyživí. Namazat, nasadit tlusté ponožky, jít si lehnout a víc se o to nestarat :)',
     details: null,
-    price: '85',
+    price: 85,
     amount: '100 g',
     category: 'kosmetika',
     subcategory: 'Tělo',
@@ -122,7 +122,7 @@ const content = [
     description:
       'klasická šumivá bomba do koupele, jen bez chemických přísad. Přísady a esence na přání nebo náhodně dle aktuálních zásob',
     details: null,
-    price: '45',
+    price: 45,
     amount: '100 g',
     category: 'kosmetika',
     subcategory: 'Koupel',
@@ -137,7 +137,7 @@ const content = [
     description:
       'během koupání se děti pobaví s krásně voňavou a šumivou bombou a navíc uvnitř najdou překvapení v podobě malé hračky',
     details: null,
-    price: '45',
+    price: 45,
     amount: '80 g',
     category: 'kosmetika',
     subcategory: 'Koupel',
@@ -152,7 +152,7 @@ const content = [
     description:
       'luxusní alternativa šumivých bomb, extrémně pěstící díky použitým tukům. Vhodné také jako vtipný dárek',
     details: null,
-    price: '130',
+    price: 130,
     amount: '15 ks',
     category: 'kosmetika',
     subcategory: 'Koupel',
@@ -167,7 +167,7 @@ const content = [
     description:
       'funkční a zdravá zubní pasta s příjemnou vůní máty. Pro delší trvanlivost nabírejte na kartáček přiloženou špachtlí',
     details: null,
-    price: '80',
+    price: 80,
     amount: '50 ml',
     category: 'kosmetika',
     subcategory: 'Zuby',
@@ -182,7 +182,7 @@ const content = [
     description:
       'funkční prášek s příjemnou jemnou vůní, vhodný i pro citlivou pokožku dětí. Dodáváno ve dvou nádobách (směs v druhé nádobě se přidává do bílého prádla)',
     details: null,
-    price: '250',
+    price: 250,
     amount: '1,5 kg',
     category: 'drogerie',
     subcategory: 'Praní',
@@ -197,7 +197,7 @@ const content = [
     description:
       'funkční prací gel s příjemnou jemnou vůní, vhodný i pro citlivou pokožku dětí. Dodáváno ve dvou nádobách (směs v druhé nádobě se přidává do bílého prádla)',
     details: null,
-    price: '150',
+    price: 150,
     amount: '2 l',
     category: 'drogerie',
     subcategory: 'Praní',
@@ -212,7 +212,7 @@ const content = [
     description:
       'jednoduché složení, malá cena a stejná efektivita. Jako leštidlo je dobré použít bílý vinný ocet při každém mytí.',
     details: null,
-    price: '60',
+    price: 60,
     amount: '30 ks',
     category: 'drogerie',
     subcategory: 'Úklid',
@@ -226,7 +226,7 @@ const content = [
     description:
       'roztomilé kytičky, které se občas hodí do záchodu, a spolehlivě vydezinfikují a vyvoní toaletu',
     details: null,
-    price: '50',
+    price: 50,
     amount: '30 ks',
     category: 'drogerie',
     subcategory: 'Úklid',
@@ -239,7 +239,7 @@ const content = [
     ingredients: null,
     description: 'různé druhy bomb',
     details: null,
-    price: '310',
+    price: 310,
     amount: '6 ks',
     category: 'darkove-sady',
     subcategory: null,
@@ -252,7 +252,7 @@ const content = [
     ingredients: null,
     description: 'v pralinkové krabičce',
     details: null,
-    price: '160',
+    price: 160,
     amount: '15 ks',
     category: 'darkove-sady',
     subcategory: null,
@@ -266,7 +266,7 @@ const content = [
     description:
       'malinkatá mýdélka s arganovým olejem, vhodná jako drobný dárek. Balená po jednom.',
     details: null,
-    price: '160',
+    price: 160,
     amount: '9 ks',
     category: 'darkove-sady',
     subcategory: null,

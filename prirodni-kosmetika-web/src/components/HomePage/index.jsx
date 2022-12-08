@@ -4,12 +4,21 @@ import { ProductCard } from '../ProductCard';
 import { useCategory } from '../../category-context';
 // import filters from './filters.js';
 
-export const HomePage = ({ content, filteredItems, onAddToCart }) => {
-  const { category, changeCategory, filterByCategory } = useCategory();
+export const HomePage = ({ filteredItems }) => {
+  const {
+    category,
+    changeCategory,
+    filterByCategory,
+    resetCategory,
+  } = useCategory();
 
   const handleChange = (e) => {
-    changeCategory(e.target.value);
-    filterByCategory(e.target.value);
+    if (e.target.value === '') {
+      resetCategory();
+    } else {
+      changeCategory(e.target.value);
+      filterByCategory(e.target.value);
+    }
   };
   console.log(category);
 
@@ -26,12 +35,8 @@ export const HomePage = ({ content, filteredItems, onAddToCart }) => {
           </select>
         </div>
         <div className="product-list">
-          {content.map((item) => (
-            <ProductCard
-              content={filteredItems}
-              onAddToCart={onAddToCart}
-              item={item}
-            />
+          {filteredItems.map((item) => (
+            <ProductCard key={item.index} content={filteredItems} item={item} />
           ))}
         </div>
       </div>

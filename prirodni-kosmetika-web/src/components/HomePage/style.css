@@ -58,13 +58,3 @@ select {
   height: fit-content;
   align-self: center;
 }
-
-.footer {
-  height: 30px;
-  background-color: grey;
-  color: rgb(204, 204, 204);
-  font-size: 15px;
-  padding: 10px;
-  height: 50px;
-  display: flex;
-}

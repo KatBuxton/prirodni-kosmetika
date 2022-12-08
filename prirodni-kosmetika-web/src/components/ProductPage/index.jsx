@@ -1,26 +1,14 @@
 import React, { useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import './style.css';
-import { useContext } from 'react';
-import { CartContext } from '../../cart-context';
+import { useCart } from '../../cart-context';
 
-export const ProductPage = ({ content, props }) => {
+export const ProductPage = ({ content }) => {
   const amountInputRef = useRef();
   const { productId } = useParams();
-  const cartCtx = useContext(CartContext);
+  const { changeCart, changeItemQuantity } = useCart();
 
-  const addToCarlHandler = (amount) => {
-    cartCtx.addItem({
-      id: props.id,
-      name: props.name,
-      amount: amount,
-      price: props.price,
-    });
-  };
-
-  console.log('cartCTX', cartCtx);
-
-  const submitHandler = (event) => {
+  const quantityChangeHandler = (event) => {
     event.preventDefault();
     const enteredAmount = amountInputRef.current.value;
     const enteredAmountNumber = +enteredAmount;
@@ -28,8 +16,21 @@ export const ProductPage = ({ content, props }) => {
     if (enteredAmount.trim().length === 0 || enteredAmountNumber < 1) {
       return;
     }
-    content.onAddToCart(enteredAmountNumber);
+    changeItemQuantity(enteredAmountNumber);
   };
+
+  const addItemToCartHandler = (item) => {
+    changeCart(item);
+  };
+
+  // const addToCartHandler = (amount) => {
+  //   cartCtx.addItem({
+  //     id: props.id,
+  //     name: props.name,
+  //     amount: amount,
+  //     price: props.price,
+  //   });
+  // };
 
   // //tohle pak smazu:
   // const handleOnClick = (product) => {
@@ -71,15 +72,21 @@ export const ProductPage = ({ content, props }) => {
                   min="1"
                   defaultValue="1"
                   className="amount-input"
-                  onChange={submitHandler}
+                  onChange={quantityChangeHandler}
                 />
-                <button name="Add to cart" onClick={addToCarlHandler}>
+                <button
+                  name="Add to cart"
+                  onClick={() => {
+                    addItemToCartHandler(product);
+                  }}
+                >
                   Vložit do košíku
                 </button>
               </div>
             </div>
           </div>
         ))}
+      <div className="footer">Created by Katerina Buxton, 2022</div>
     </>
   );
 };

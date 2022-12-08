@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
 
-export const ProductCard = ({ item, onAddToCart }) => {
+export const ProductCard = ({ item }) => {
   // const [data, setData] = useState([]);
 
   // useEffect(() => {
@@ -19,7 +19,6 @@ export const ProductCard = ({ item, onAddToCart }) => {
         key={item.index}
         onClick={() => {
           window.scroll(0, 0);
-          onAddToCart = { onAddToCart };
         }}
       >
         <div

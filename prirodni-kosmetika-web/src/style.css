@@ -8,4 +8,22 @@
 
 html {
   font-family: 'Open Sans', sans-serif;
+  background-color: rgb(247, 247, 247);
+  position: relative;
+  min-height: 100vh;
+}
+
+body {
+  padding-bottom: 50px;
+}
+
+.footer {
+  height: 50px;
+  background-color: grey;
+  color: rgb(204, 204, 204);
+  font-size: 15px;
+  padding: 10px;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
 }

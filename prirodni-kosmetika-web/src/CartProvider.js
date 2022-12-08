@@ -1,48 +1,46 @@
 import { CartContext } from './cart-context';
-import { useReducer } from 'react';
+import { React, useState } from 'react';
 
-const defaultCartState = {
-  items: [],
-  totalAmount: 0,
-};
+const defaultCartState = [];
 
-const cartReducer = (state, action) => {
-  if (action.type === 'ADD') {
-    const updatedItems = state.items.concat(action.item);
-    const updatedTotalAmount =
-      state.totalAmount + action.item.price * action.item.amount;
-    return {
-      items: updatedItems,
-      totalAmount: updatedTotalAmount,
-    };
-  }
-  return defaultCartState;
-};
+// const cartReducer = (state, action) => {
+//   if (action.type === 'ADD') {
+//     const updatedItems = state.items.concat(action.item);
+//     const updatedTotalAmount =
+//       state.totalAmount + action.item.price * action.item.amount;
+//     return {
+//       items: updatedItems,
+//       totalAmount: updatedTotalAmount,
+//     };
+//   }
+//   return defaultCartState;
+// };
 
-export const CartProvider = (props) => {
-  const [cartState, dispatchCartAction] = useReducer(
-    cartReducer,
-    defaultCartState,
-  );
+export const CartProvider = () => {
+  const { cartItems, setCartItems } = useState([]);
 
   const addItemToCartHandler = (item) => {
-    dispatchCartAction({ type: 'ADD', item: item });
+    setCartItems([...cartItems, item]);
   };
 
-  const removeItemFromCartHandler = (id) => {
-    dispatchCartAction({ type: 'REMOVE', id: id });
+  const removeItemFromCartHandler = (index) => {
+    const newCartItems = [...cartItems];
+    setCartItems(newCartItems.splice(index, 1));
+  };
+
+  const totalPrice = () => {
+    cartItems.content.reduce(
+      (total, currentItem) => (total = total + currentItem.salary),
+      0,
+    );
   };
 
   const cartContext = {
-    items: cartState.items,
-    totalAmount: cartState.totalAmount,
+    items: cartItems,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
+    updatePrice: totalPrice,
   };
 
-  return (
-    <CartContext.Provider value={cartContext}>
-      {props.children}
-    </CartContext.Provider>
-  );
+  return <CartContext.Provider value={cartContext}></CartContext.Provider>;
 };

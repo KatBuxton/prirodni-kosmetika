@@ -18,13 +18,18 @@
 }
 
 button {
-  background-color: grey;
+  background-color: rgb(119, 184, 137);
   width: 200px;
   height: 50px;
   font-size: large;
   border: 0;
   color: white;
   margin-top: 30px;
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: rgb(138, 214, 159);
 }
 
 .product-info img {
