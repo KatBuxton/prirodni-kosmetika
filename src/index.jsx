@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import './style.css';
@@ -15,6 +15,10 @@ const App = () => {
   const [category, setCategory] = useState('');
   const [cartItems, setCartItems] = useState([]);
   const [itemQuantity, setItemQuantity] = useState(1);
+
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const changeCategory = (newCategory) => {
     setCategory(newCategory);
@@ -35,6 +39,7 @@ const App = () => {
       return product.category === category;
     });
     setFilteredItems(newContent);
+    console.log(filteredItems);
   };
 
   const resetCategory = () => {
@@ -42,7 +47,10 @@ const App = () => {
     setCategory('');
   };
 
-  console.log(filteredItems);
+  const removeItemFromCart = (index) => {
+    const newCartItems = [...cartItems];
+    setCartItems(newCartItems.splice(index, 1));
+  };
 
   // const handleAddToCart = (product, quantity) => {
   //   const addedProducts = [...cartProducts, product.name];
@@ -54,7 +62,13 @@ const App = () => {
       value={{ category, changeCategory, filterByCategory, resetCategory }}
     >
       <CartContext.Provider
-        value={{ cartItems, setCartItems, changeCart, changeItemQuantity }}
+        value={{
+          cartItems,
+          setCartItems,
+          changeCart,
+          changeItemQuantity,
+          removeItemFromCart,
+        }}
       >
         <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
           <Header />

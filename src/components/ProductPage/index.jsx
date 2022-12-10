@@ -1,16 +1,15 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import './style.css';
 import { useCart } from '../../cart-context';
 
 export const ProductPage = ({ content }) => {
-  const amountInputRef = useRef();
   const { productId } = useParams();
   const { changeCart, changeItemQuantity } = useCart();
 
   const quantityChangeHandler = (event) => {
     event.preventDefault();
-    const enteredAmount = amountInputRef.current.value;
+    const enteredAmount = event.target.value;
     const enteredAmountNumber = +enteredAmount;
 
     if (enteredAmount.trim().length === 0 || enteredAmountNumber < 1) {
@@ -66,7 +65,6 @@ export const ProductPage = ({ content }) => {
               <span className="product-price">{product.price} Kč</span>
               <div className="add-to-cart">
                 <input
-                  ref={amountInputRef}
                   label="amount"
                   type="number"
                   min="1"

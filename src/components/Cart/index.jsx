@@ -2,11 +2,18 @@ import React from 'react';
 import './style.css';
 // import EmailOrderForm from '../EmailOrderForm';
 import { useCart } from '../../cart-context';
+import removeImg from '../../img/delete.svg';
 
 export const Cart = () => {
-  const { cartItems } = useCart();
+  const { cartItems, removeItemFromCart } = useCart();
+
+  JSON.parse(localStorage.cartItems);
 
   const hasItems = cartItems.length > 0;
+
+  const handleRemove = (item) => {
+    removeItemFromCart(item);
+  };
 
   const cartContent = (
     <ul className="cart-items">
@@ -24,7 +31,14 @@ export const Cart = () => {
             alt={item.name}
           ></div>
           <span className="cart-item-name">{item.name}</span>
-          <span className="cart-item-price">{item.price} Kč</span>
+          <span className="cart-item-price">{item.price}&nbsp;Kč</span>
+          <img
+            className="cart-item-remove"
+            src={removeImg}
+            alt="cross"
+            width="25px"
+            onClick={handleRemove}
+          ></img>
         </li>
       ))}
     </ul>

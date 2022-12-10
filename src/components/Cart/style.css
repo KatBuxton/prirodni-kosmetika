@@ -32,6 +32,17 @@ ul {
 .cart-item-name {
   margin: auto;
   margin-left: 0px;
+  font-size: smaller;
+}
+
+.cart-item-price {
+  padding-left: 10px;
+  font-size: smaller;
+}
+
+.cart-item-remove {
+  padding-left: 10px;
+  opacity: 0.5;
 }
 
 .cart-footer {
