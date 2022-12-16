@@ -23,10 +23,7 @@ export const CartProvider = () => {
     setCartItems([...cartItems, item]);
   };
 
-  const removeItemFromCartHandler = (index) => {
-    const newCartItems = [...cartItems];
-    setCartItems(newCartItems.splice(index, 1));
-  };
+
 
   const totalPrice = () => {
     cartItems.content.reduce(

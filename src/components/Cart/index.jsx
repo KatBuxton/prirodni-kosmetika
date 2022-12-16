@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-// import EmailOrderForm from '../EmailOrderForm';
+import EmailOrderForm from '../EmailOrderForm';
 import { useCart } from '../../cart-context';
 import removeImg from '../../img/delete.svg';
 
@@ -23,8 +23,8 @@ export const Cart = () => {
             className="cart-item-image"
             style={{
               backgroundImage: `url(${item.image})`,
-              width: '100px',
-              height: '100px',
+              width: '89px',
+              height: '89px',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
@@ -66,15 +66,14 @@ export const Cart = () => {
           {hasItems ? <h2>V košíku máte:</h2> : <h2>Košík je prázdný</h2>}
           {cartContent}
           {hasItems && (
-            <div className="cart-footer">
-              <div className="cart-total">
-                <span>Celkem </span>
-                <span>{totalPrice} Kč</span>
+            <>
+              <div className="cart-price">
+                <span>Celkem {totalPrice} Kč</span>
               </div>
-              <button className="cart-order">Závazně objednat</button>
-            </div>
+              <h2>Pro objednání vyplňte kontaktní údaje:</h2>
+              <EmailOrderForm />
+            </>
           )}
-          {/* <EmailOrderForm /> */}
         </div>
         <div className="footer">Created by Katerina Buxton, 2022</div>
       </div>

@@ -45,10 +45,11 @@ ul {
   opacity: 0.5;
 }
 
-.cart-footer {
+.cart-price {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  margin-bottom: 30px;
 }
 
 .cart-order {
