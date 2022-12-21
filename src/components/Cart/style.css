@@ -34,6 +34,8 @@ ul {
 .cart-item-image {
   margin: 10px;
   margin-left: 0px;
+  background-size: cover;
+  background-position: center;
 }
 
 .cart-item-name {

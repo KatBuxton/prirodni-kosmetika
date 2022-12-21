@@ -4,6 +4,7 @@ import './style.css';
 import EmailOrderForm from '../EmailOrderForm';
 import { useCart } from '../../cart-context';
 import removeImg from '../../img/delete.svg';
+import zasilkovnaImg from '../../img/zasilkovna.png';
 
 export const Cart = () => {
   const { cartItems, removeItemFromCart, setCartItems } = useCart();
@@ -31,8 +32,6 @@ export const Cart = () => {
                 backgroundImage: `url(${item.image})`,
                 width: '89px',
                 height: '89px',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
               }}
               alt={item.name}
             ></div>
@@ -57,7 +56,7 @@ export const Cart = () => {
   // };
 
   const totalPrice = cartItems.reduce((prev, item) => {
-    return prev + item.price;
+    return prev + item.price + 79;
   }, 0);
 
   //tohle funguje stejne jako ^
@@ -74,6 +73,23 @@ export const Cart = () => {
           {cartContent}
           {hasItems && (
             <>
+              <div className="shipping-fee cart-item">
+                <div
+                  className="cart-item-image"
+                  style={{
+                    backgroundImage: `url(${zasilkovnaImg})`,
+                    width: '89px',
+                    height: '89px',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                  alt="logo zasilkovny"
+                ></div>
+                <span className="cart-item-name">
+                  DORUČENÍ NA POBOČKU ZÁSILKOVNY
+                </span>
+                <span className="cart-item-price">79&nbsp;Kč</span>
+              </div>
               <div className="cart-price">
                 <span className="cart-erase" onClick={handleErase}>
                   Vysypat košík
@@ -82,7 +98,7 @@ export const Cart = () => {
               </div>
               <hr />
               <h2>Pro objednání vyplňte kontaktní údaje:</h2>
-              <EmailOrderForm />
+              <EmailOrderForm totalPrice={totalPrice} />
             </>
           )}
         </div>

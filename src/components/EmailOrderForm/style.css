@@ -54,7 +54,8 @@ textarea:active:focus::placeholder {
   width: 90%;
 }
 
-.order-info {
+.order-info,
+.order-info a:visited {
   font-size: small;
   width: 100%;
   color: grey;

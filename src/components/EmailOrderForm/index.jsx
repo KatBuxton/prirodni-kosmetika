@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 import { useCart } from '../../cart-context';
 import './style.css';
 
-const EmailOrderForm = () => {
+const EmailOrderForm = ({ totalPrice }) => {
   const { cartItems } = useCart();
 
   const form = useRef();
@@ -35,20 +35,35 @@ const EmailOrderForm = () => {
       </div>`;
   }
 
+  function formatTotalPriceAsHtml() {
+    return `${totalPrice}`;
+  }
+
   return (
     <form ref={form} onSubmit={sendEmail}>
-      {/* <label>Jméno a příjmení</label> */}
       <input type="text" name="user_name" placeholder="Jméno a příjmení" />
-      {/* <label>Email</label> */}
       <input type="email" name="user_email" placeholder="Email" />
-      {/* <label>Poznámka</label> */}
+      <input
+        type="text"
+        name="pickup_address"
+        placeholder="Adresa pobočky Zásilkovny"
+      />
       <textarea name="message" placeholder="Poznámka" />
       <div className="order-footer">
         <input type="hidden" name="cart" value={formatCartAsHtml(cartItems)} />
-        <span className="order-info">
+        <input
+          type="hidden"
+          name="total_price"
+          value={formatTotalPriceAsHtml()}
+        />
+        <div className="order-info">
+          <a href="https://www.zasilkovna.cz/pobocky" target="_blank">
+            Hledat adresu pobočky Zásilkovny
+          </a>
+          <br />
           Kliknutím na tlačítko "Závazně objednat" bude vaše objednávka
           odeslána, na email vám přijdou údaje pro bankovní převod.
-        </span>
+        </div>
         <button className="cart-order" type="submit">
           Závazně objednat
         </button>
