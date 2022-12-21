@@ -11,7 +11,7 @@ export const Cart = () => {
 
   JSON.parse(localStorage.getItem('cartItems'));
 
-  const hasItems = cartItems?.length > 0;
+  const hasItems = cartItems.length > 0;
 
   // const handleRemove = (item) => {
   //   removeItemFromCart(item);

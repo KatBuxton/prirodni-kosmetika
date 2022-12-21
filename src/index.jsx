@@ -19,7 +19,9 @@ const App = () => {
   const [itemQuantity, setItemQuantity] = useState(1);
 
   useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    if (cartItems) {
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }
   }, [cartItems]);
 
   const changeCategory = (newCategory) => {

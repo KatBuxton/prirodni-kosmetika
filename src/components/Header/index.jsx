@@ -8,7 +8,7 @@ import { useCart } from '../../cart-context';
 
 export const Header = () => {
   const { cartItems } = useCart();
-  const numberOfCartItems = cartItems?.length;
+  const numberOfCartItems = cartItems.length;
 
   return (
     <div className="header">
