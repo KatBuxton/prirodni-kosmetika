@@ -5,7 +5,7 @@ import { useCart } from '../../cart-context';
 
 export const ProductPage = ({ content }) => {
   const { productId } = useParams();
-  const { changeCart, changeItemQuantity } = useCart();
+  const { changeCart } = useCart();
 
   // const quantityChangeHandler = (event) => {
   //   event.preventDefault();
