@@ -31,8 +31,11 @@ export const ProductCard = ({ item }) => {
             backgroundPosition: 'center',
           }}
           alt={item.name}
-        ></div>
-        <div className="preview-name">{item.name}</div>
+        >
+          <div className="preview-image-overlay"></div>
+
+          <span className="preview-name">{item.name}</span>
+        </div>
       </Link>
     </>
   );

@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './style.css';
 import EmailOrderForm from '../EmailOrderForm';
 import { useCart } from '../../cart-context';
 import removeImg from '../../img/delete.svg';
 
 export const Cart = () => {
-  const { cartItems, removeItemFromCart } = useCart();
+  const { cartItems, removeItemFromCart, setCartItems } = useCart();
 
-  JSON.parse(localStorage.cartItems);
+  JSON.parse(localStorage.getItem('cartItems'));
 
   const hasItems = cartItems.length > 0;
 
@@ -15,31 +16,37 @@ export const Cart = () => {
     removeItemFromCart(item);
   };
 
+  const handleErase = () => {
+    setCartItems([]);
+  };
+
   const cartContent = (
     <ul className="cart-items">
       {cartItems.map((item) => (
-        <li className="cart-item" key={item.index}>
-          <div
-            className="cart-item-image"
-            style={{
-              backgroundImage: `url(${item.image})`,
-              width: '89px',
-              height: '89px',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-            alt={item.name}
-          ></div>
-          <span className="cart-item-name">{item.name}</span>
-          <span className="cart-item-price">{item.price}&nbsp;Kč</span>
-          <img
-            className="cart-item-remove"
-            src={removeImg}
-            alt="cross"
-            width="25px"
-            onClick={handleRemove}
-          ></img>
-        </li>
+        <Link to={`/product/${item.index}`}>
+          <li className="cart-item" key={item.index}>
+            <div
+              className="cart-item-image"
+              style={{
+                backgroundImage: `url(${item.image})`,
+                width: '89px',
+                height: '89px',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+              alt={item.name}
+            ></div>
+            <span className="cart-item-name">{item.name}</span>
+            <span className="cart-item-price">{item.price}&nbsp;Kč</span>
+            {/* <img
+              className="cart-item-remove"
+              src={removeImg}
+              alt="cross"
+              width="25px"
+              onClick={handleRemove}
+            ></img> */}
+          </li>
+        </Link>
       ))}
     </ul>
   );
@@ -68,8 +75,12 @@ export const Cart = () => {
           {hasItems && (
             <>
               <div className="cart-price">
+                <span className="cart-erase" onClick={handleErase}>
+                  Vysypat košík
+                </span>
                 <span>Celkem {totalPrice} Kč</span>
               </div>
+              <hr />
               <h2>Pro objednání vyplňte kontaktní údaje:</h2>
               <EmailOrderForm />
             </>

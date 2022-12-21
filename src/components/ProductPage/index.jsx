@@ -46,11 +46,10 @@ export const ProductPage = ({ content }) => {
             <div
               style={{
                 backgroundImage: `url(${product.image})`,
-                width: '400px',
-                height: '400px',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
+              className="product-image"
               alt={product.name}
             ></div>
             <div className="product-info">
@@ -64,14 +63,14 @@ export const ProductPage = ({ content }) => {
               <br></br>
               <span className="product-price">{product.price} Kč</span>
               <div className="add-to-cart">
-                <input
+                {/* <input
                   label="amount"
                   type="number"
                   min="1"
                   defaultValue="1"
                   className="amount-input"
                   onChange={quantityChangeHandler}
-                />
+                /> */}
                 <button
                   name="Add to cart"
                   onClick={() => {

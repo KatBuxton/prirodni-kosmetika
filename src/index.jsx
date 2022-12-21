@@ -13,7 +13,9 @@ import { CartContext } from './cart-context';
 const App = () => {
   const [filteredItems, setFilteredItems] = useState(content);
   const [category, setCategory] = useState('');
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(
+    JSON.parse(localStorage.getItem('cartItems')),
+  );
   const [itemQuantity, setItemQuantity] = useState(1);
 
   useEffect(() => {
@@ -26,8 +28,9 @@ const App = () => {
 
   const changeCart = (newCartItem) => {
     setCartItems([...cartItems, newCartItem]);
-    console.log('cartItems in App', cartItems);
   };
+
+  console.log('cartItems in App', cartItems);
 
   const changeItemQuantity = (newItemQuantity) => {
     setItemQuantity(newItemQuantity);
@@ -51,6 +54,12 @@ const App = () => {
     const newCartItems = [...cartItems];
     setCartItems(newCartItems.splice(index, 1));
   };
+
+  // const arr = [];
+  // for (var i = 0; i < count; i++) {
+  //   arr.push(newCartItem);
+  // }
+  // setCartItems([...cartItems, ...arr]);
 
   // const handleAddToCart = (product, quantity) => {
   //   const addedProducts = [...cartProducts, product.name];
@@ -98,37 +107,3 @@ const App = () => {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
-
-// const [selectedFilters, setSelectedFilters] = useState([]);
-// const [filteredItems, setFilteredItems] = useState(content);
-// const { filter } = useFilter();
-
-// useEffect(() => {
-//   const newItems =
-//     selectedFilters.length === 0
-//       ? content
-//       : content.filter((product) => {
-//           const productCategory = ['Kosmetika', 'Drogerie', 'Dárkové sady'];
-
-//           const categorySelected = selectedFilters.some((filter) =>
-//             productCategory.includes(filter),
-//           );
-
-//           const productType = categorySelected
-//             ? selectedFilters.includes(product.category)
-//             : true;
-
-//           const filteredSelectedItems = selectedFilters.filter(
-//             (filter) => !productCategory.includes(filter),
-//           );
-
-//           const containsAll = filteredSelectedItems.every((filter) => {
-//             return product.filters.includes(filter);
-//           });
-//           if (productType && containsAll) {
-//             return true;
-//           }
-//           return false;
-//         });
-//   setFilteredItems(newItems);
-// }, [selectedFilters]);

@@ -7,12 +7,19 @@
 
 .cart-content {
   background-color: white;
-  padding: 50px;
+  padding: 20px;
   padding-bottom: 20px;
   box-shadow: 2px 2px 5px #cacaca;
   border-radius: 5px;
-  width: 60vw;
+  width: 80vw;
   margin-bottom: 20px;
+}
+
+@media (min-width: 600px) {
+  .cart-content {
+    padding: 50px;
+    width: 60vw;
+  }
 }
 
 ul {
@@ -45,10 +52,23 @@ ul {
   opacity: 0.5;
 }
 
+.cart-erase {
+  color: rgb(150, 150, 150);
+}
+
+.cart-erase:hover {
+  cursor: pointer;
+  color: rgb(138, 214, 159);
+}
+
 .cart-price {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+hr {
   margin-bottom: 30px;
 }
 
