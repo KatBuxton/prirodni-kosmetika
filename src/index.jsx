@@ -13,16 +13,17 @@ import { CartContext } from './cart-context';
 const App = () => {
   const [filteredItems, setFilteredItems] = useState(content);
   const [category, setCategory] = useState('');
-  const [cartItems, setCartItems] = useState(
-    JSON.parse(localStorage.getItem('cartItems')),
-  );
+  const [cartItems, setCartItems] = useState(() => {
+    const items = JSON.parse(localStorage.getItem('cartItems'));
+    if (items !== null) {
+      return items;
+    } else return [];
+  });
   const [itemQuantity, setItemQuantity] = useState(1);
 
-  useEffect(() => {
-    if (cartItems) {
-      localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    }
-  }, [cartItems]);
+  // useEffect(() => {
+  //   localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  // }, [cartItems]);
 
   const changeCategory = (newCategory) => {
     setCategory(newCategory);
