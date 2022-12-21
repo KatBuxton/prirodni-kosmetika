@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom';
 import './style.css';
 import EmailOrderForm from '../EmailOrderForm';
 import { useCart } from '../../cart-context';
-import removeImg from '../../img/delete.svg';
+// import removeImg from '../../img/delete.svg';
 import zasilkovnaImg from '../../img/zasilkovna.png';
 
 export const Cart = () => {
-  const { cartItems, removeItemFromCart, setCartItems } = useCart();
+  const { cartItems, setCartItems } = useCart();
 
   JSON.parse(localStorage.getItem('cartItems'));
 
   const hasItems = cartItems.length > 0;
 
-  const handleRemove = (item) => {
-    removeItemFromCart(item);
-  };
+  // const handleRemove = (item) => {
+  //   removeItemFromCart(item);
+  // };
 
   const handleErase = () => {
     setCartItems([]);

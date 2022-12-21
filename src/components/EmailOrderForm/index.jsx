@@ -57,7 +57,11 @@ const EmailOrderForm = ({ totalPrice }) => {
           value={formatTotalPriceAsHtml()}
         />
         <div className="order-info">
-          <a href="https://www.zasilkovna.cz/pobocky" target="_blank">
+          <a
+            href="https://www.zasilkovna.cz/pobocky"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Hledat adresu pobočky Zásilkovny
           </a>
           <br />

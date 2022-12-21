@@ -7,16 +7,16 @@ export const ProductPage = ({ content }) => {
   const { productId } = useParams();
   const { changeCart, changeItemQuantity } = useCart();
 
-  const quantityChangeHandler = (event) => {
-    event.preventDefault();
-    const enteredAmount = event.target.value;
-    const enteredAmountNumber = +enteredAmount;
+  // const quantityChangeHandler = (event) => {
+  //   event.preventDefault();
+  //   const enteredAmount = event.target.value;
+  //   const enteredAmountNumber = +enteredAmount;
 
-    if (enteredAmount.trim().length === 0 || enteredAmountNumber < 1) {
-      return;
-    }
-    changeItemQuantity(enteredAmountNumber);
-  };
+  //   if (enteredAmount.trim().length === 0 || enteredAmountNumber < 1) {
+  //     return;
+  //   }
+  //   changeItemQuantity(enteredAmountNumber);
+  // };
 
   const addItemToCartHandler = (item) => {
     changeCart(item);
