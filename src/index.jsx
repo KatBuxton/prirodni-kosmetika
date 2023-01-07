@@ -14,16 +14,18 @@ const App = () => {
   const [filteredItems, setFilteredItems] = useState(content);
   const [category, setCategory] = useState('');
   const [cartItems, setCartItems] = useState(() => {
-    const items = JSON.parse(localStorage.getItem('cartItems'));
-    if (items !== null) {
-      return items;
-    } else return [];
+    const data = localStorage.getItem('cartItems');
+    if (data) {
+      return JSON.parse(data);
+    } else {
+      return [];
+    }
   });
   const [itemQuantity, setItemQuantity] = useState(1);
 
-  // useEffect(() => {
-  //   localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  // }, [cartItems]);
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const changeCategory = (newCategory) => {
     setCategory(newCategory);
