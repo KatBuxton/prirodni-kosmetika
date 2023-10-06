@@ -8,7 +8,8 @@ React.js, JavaScript, CSS, [Email.js](https://www.emailjs.com/), [Context](https
 
 ## Features
 
-Filtering by product category, Add to cart, Place an order
+Filtering by product category, add to cart, place an order
+
 ![Search by name and address](https://github.com/KatBuxton/prirodni-kosmetika/assets/101291722/631d6bca-1c38-4b91-8559-46aa87413e4c)
 
 ## Installation
